@@ -1,0 +1,48 @@
+<html lang="en">
+  <%- include('../partials/head.ejs')  %> 
+<body>
+
+  <nav>
+    <div class="site-title">
+      <a href="/"><h1>Blog Kostas</h1></a>
+      <p>A Net Ninja Site</p>
+    </div>
+    <ul>
+      <li><a href="/">Blogs</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/blogs/create-blog">New Blog</a></li>
+      <% if (user === null) { %>
+        <li><a href="/register">Register</a></li>   
+        <li><a href="/login">Login</a></li>
+      <% } else { %>
+        <li>
+          <a>
+            <form action="/logout?_method=DELETE" method="post">
+              <button type="submit">Logout</button>
+            </form>
+          </a>
+        </li>
+      <% } %> 
+    </ul>
+  </nav>
+
+  <div class="blogs content">
+    <h2>All Blogs</h2>
+
+    <% if (blogs.length > 0) { %>
+      <% blogs.forEach(blog => { %>
+        <a class="single" href="/blogs/<%= blog._id %>">
+          <h3 class="title"> <%= blog.title %> </h3>
+          <p class="snippet"> <%= blog.snippet %> </p>
+        </a>
+      <% }) %>
+    <% } else { %>
+      <p>There are no blogs to display</p>
+    <% } %>
+     
+  </div>
+
+  <%- include('../partials/footer.ejs')  %> 
+  
+</body>
+</html>
