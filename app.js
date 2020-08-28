@@ -26,21 +26,27 @@ app.set('view engine', 'ejs')
 
 // middleware & static files
 app.use(express.static('public'))
+
 // Parses URL Encoded Data into an Object  
 app.use(express.urlencoded({ extended: true }))
+
 // flash
 app.use(flash())
+
 // express-session
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false
 }))
+
 // passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
+
 // method override for logout delete request
 app.use(methodOverride('_method'))
+
 // middleware logger
 app.use(morgan('dev'))
 
@@ -54,8 +60,8 @@ app.get('/about', (req, res) => {
   res.render('about', { title: 'About' })
 })
 
-app.get('/blogs/create-blog', (req, res) => {
-  res.render('blogs/create', { title: 'Create a new Blog' })
+app.get('/blogs/create-blog', checkAuth, (req, res) => {
+  res.render('blogs/create', { title: 'Create a new Blog', user: req.user })
 })
 
 // Auth Routes

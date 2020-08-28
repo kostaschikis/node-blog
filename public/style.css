@@ -13,6 +13,10 @@ p, h1, h2, h3, a, ul{
   color: #222;
 }
 
+form.logout {
+  margin-bottom: 0;
+}
+
 /* nav & footer styles */
 nav{
   display: flex;

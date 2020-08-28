@@ -2,7 +2,31 @@
   <%- include('../partials/head.ejs')  %> 
 <body>
 
-  <%- include('../partials/nav.ejs')  %> 
+  <nav>
+    <div class="site-title">
+      <a href="/"><h1>Blog Kostas</h1></a>
+      <p>A Net Ninja Site</p>
+    </div>
+    <ul>
+      <li><a href="/">Blogs</a></li>
+      <li><a href="/about">About</a></li>
+      <% if (user !== null) { %>
+        <li><a href="/blogs/create-blog">New Blog</a></li>
+      <% } %>
+      <% if (user === null) { %>
+        <li><a href="/register">Register</a></li>   
+        <li><a href="/login">Login</a></li>
+      <% } else { %>
+        <li>
+          <a>
+            <form action="/logout?_method=DELETE" method="post" class="logout">
+              <button type="submit">Logout</button>
+            </form>
+          </a>
+        </li>
+      <% } %> 
+    </ul>
+  </nav>
 
   <div class="create-blog content">
     <form action="/blogs" method="POST">
