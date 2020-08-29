@@ -1,4 +1,4 @@
-# Node Blog 📑
+# Node Blog 📝
 
 A simple Blog application i made using [Node.js](https://nodejs.org/en/), [Express](https://expressjs.com/), [MongoDB](https://www.mongodb.com/) and [EJS](https://ejs.co/).  
 
