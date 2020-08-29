@@ -1,1 +1,1 @@
-views/* linguist-vendored
+*.html linguist-detectable=false
