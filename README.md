@@ -13,7 +13,10 @@ A simple Blog application i made using [Node.js](https://nodejs.org/en/), [Expre
 
 ## How to Use
 
-Anyone can read all the blog posts but if someone wants to post his own, he must register an account.
+Functionality is pretty basic:
+
+- Anyone can read all the blog posts.
+- You need an account to make a blog post.
 
 > ⚠ User accounts are not stored in the DB at the moment. Coming soon...
 
