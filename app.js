@@ -15,7 +15,7 @@ const methodOverride = require('method-override')
 const app = express()
 
 // connect to mongodb
-const dbURI = 'mongodb+srv://devkostas:nafasskata3@nodeblog.7fwyc.mongodb.net/node-blog?retryWrites=true&w=majority'
+const dbURI = process.env.MONGODB_URI
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) => app.listen(3000))
   .catch((err) => console.log(err))
